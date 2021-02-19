@@ -1,10 +1,11 @@
 from time import time
 import random
+import  matplotlib.pyplot as plt
+
 def array_generator(len):
     array = [0] * len
     for i in range(len):
         array[i] = random.randrange(0,100)
-
     return array
 
 def ArrayMax(arr,n):
@@ -16,10 +17,22 @@ def ArrayMax(arr,n):
       if temp > max:
         max = temp
     return max  # T(n)= c2 * T(n-1)   T(n)= 1 + T(n-1)   O(n)
-    
-tiempo_inicial = time()
-array_i = array_generator(95)
-print(ArrayMax(array_i,95))
-tiempo_final = time()
-tiempo_total = tiempo_final - tiempo_inicial
-print(tiempo_total)
+
+#Para graficarla
+times = []
+
+def plot(times,n,lab):
+    plt.xlabel('Dimension del problema')
+    plt.ylabel('Tiempo de complejidad')
+    plt.plot(range(1,n),times,label=lab)
+    plt.grid()
+    plt.legend()
+    plt.show()
+
+for i in range(1001,1020):
+    inicio=time()
+    ArrayMax(array_generator(i), 1000)
+    fin=time()
+    total=fin-inicio
+    times.append(total)
+plot(times,20,"ArrayMax")

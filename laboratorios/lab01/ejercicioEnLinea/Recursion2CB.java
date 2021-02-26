@@ -1,3 +1,5 @@
+--------------GroupSum6------------------------------
+
 public boolean groupSum6(int start, int[] nums, int target) {
     if(start >= nums.length){   //C1 = 5 = T(0)
       if(target==0){
@@ -12,8 +14,10 @@ public boolean groupSum6(int start, int[] nums, int target) {
     }                                                                                            // T(n)= C(2^n-1) + C1* 2^n-1
     return false;   //C4=1
   }
+ // n es el numero de espacios restantes para terminar el arreglo
 
-#%%
+--------------GroupNoAdj------------------------------
+    
 public boolean groupNoAdj(int start, int[] nums, int target) {
     if(start >= nums.length){  // C1 = 6 ?
       if(target==0){
@@ -27,7 +31,8 @@ public boolean groupNoAdj(int start, int[] nums, int target) {
    return false;          // C3 = 1
   }
 
-#%%
+--------------GroupSum5------------------------------
+    
 public boolean groupSum5(int start, int[] nums, int target) {
     if(start >= nums.length){  // C1 = 6
       if(target==0){
@@ -47,7 +52,8 @@ public boolean groupSum5(int start, int[] nums, int target) {
     }
   }
 
-#%%
+--------------splitArray------------------------------
+    
 public boolean splitArray(int[] nums) {
     return splitArrayAux(0,nums,0,0);
 }
@@ -60,7 +66,8 @@ private boolean splitArrayAux(int start,int[] nums,int targetA, int targetB) {
  }                                                                                                                 // T(n)= C2(2^n-1) +C1*2^(n-1)
 
     
-#%%
+--------------GroupSumClump------------------------------
+    
 public  boolean groupSumClump(int start, int[] nums, int target) {
      if(target == 0 && start == nums.length ) 
           return true;                           //C1 = 6 

@@ -7,8 +7,6 @@ def rectangles(n):
         return n
     return rectangles(n-1) + rectangles(n-2)
 
-print(rectangles(5))
-
 times = []
 
 def plot(times,n,lab):

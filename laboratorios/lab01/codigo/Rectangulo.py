@@ -17,7 +17,7 @@ def plot(times,n,lab):
     plt.legend()
     plt.show()
 
-for i in range(1001,1012):
+for i in range(100,500):
     inicio=time()
     n = random.randrange(0,100)
     rectangles(n)

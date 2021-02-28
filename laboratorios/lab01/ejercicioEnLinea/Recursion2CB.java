@@ -19,7 +19,7 @@ public boolean groupSum6(int start, int[] nums, int target) {
 --------------GroupNoAdj------------------------------
     
 public boolean groupNoAdj(int start, int[] nums, int target) {
-    if(start >= nums.length){  // C1 = 6 ?
+    if(start >= nums.length){  // C1 = 6 
       if(target==0){
         return true;
       }

@@ -7,7 +7,7 @@ class ArrayList:
         self.__elements = []  #C2=1
 
     def size(self):
-        return len(self.__elements) #C3=
+        return length   #C3=1
 
     def get(self, index):
         return self.__elements[index]

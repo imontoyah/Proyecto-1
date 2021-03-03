@@ -2,8 +2,8 @@
 import math
 
 def invertir(array):
-    n = len(array)-1
-    for i in range(0, math.floor(n / 2)): 
+    n = len(array)-1                           #c1=2
+    for i in range(0, math.floor(n / 2)):      #T(n) = C2 + T(n/2)
             temp = array[i]
             array[i] = array[n]
             array[n] = temp
@@ -11,10 +11,10 @@ def invertir(array):
 
     return array
 
-arr = []
+arr = [] 
 n = int(input("Ingrese un numero"))
 
-while n != -1:
+while n != -1:                          #T(n) = C3 + T(n) 
     arr.append(n)
     n = int(input("Ingrese un numero")) 
     

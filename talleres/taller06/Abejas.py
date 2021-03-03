@@ -1,12 +1,13 @@
 class ArrayList:
 
-    __elements = []
-
+    __elements = []    #C1=1
+    length = len(elements)
+    
     def __init__(self):
-        self.__elements = []
+        self.__elements = []  #C2=1
 
     def size(self):
-        return len(self.__elements)
+        return len(self.__elements) #C3=
 
     def get(self, index):
         return self.__elements[index]

@@ -55,18 +55,23 @@ public boolean canBalance(int[] nums) {
     sum1 = sum1+nums[i];                     // T4(n) = C5*n   where C5 = 3
     sum2 = nums[nums.length-1];              // T5(n) = C6*n   where C6 = 4
     
-    for(int i=nums.length-2; i>0; i--){      // T6(n) = C7 + C8*(n-2)   where C7 = 1 , C8 = 3
-      if(sum1==sum2){                        // T7(n) = C9*n   where C9 = 3    ** no se si si es asiiiii????***
+    for(int i=nums.length-2; i>0; i--){      // T6(n) = (C7 + C8*(n-3))*n   where C7 = 1 , C8 = 3
+      if(sum1==sum2){                        // T7(n) = C9*n*n   where C9 = 3    
        return true;
       } else{
-      sum1 = sum1-nums[i];                   // T8(n) = C10*n  where C10 = 3
-      sum2 = sum2+nums[i];                   // T9(n) = C11*n  where C11 = 3
+      sum1 = sum1-nums[i];                   // T8(n) = C10*n*n  where C10 = 3
+      sum2 = sum2+nums[i];                   // T9(n) = C11*n*n  where C11 = 3
     }
   }
-  return (sum1==sum2);                      // T10(n) = C12*n  where C12 = 2
+  return (sum1==sum2);                      // T10(n) = C12  where C12 = 2
 }
 /* Complexity worst case
-T(n) = C1 + C2 + C4 + C3*(n-1) + 
+T(n) = C1 + C2 + C4 + C3*(n-1) + C5*n + C6*n + (C7 + C8*(n-3))*n + C9*n*n + C10*n*n + C11*n*n + C12
+T(n) = C3*(n-1) + (C5 + C6)*n + C8*(n-3)*n + (C9 + C10 + C11)*n                 ----> Sum law and common factor
+T(n) = (n-1) + n + (n-3)*n + n*n                                                ----> Product law 
+T(n) = n + n*n                                                                  ----> Sum law 
+T(n) = n*n                                                                      ----> Product law
+O(n^2)
 Where n is the array`s length
 */
 
@@ -75,14 +80,14 @@ public boolean linearIn(int[] outer, int[] inner) {
   int cont=0;                                    // T1(n) = C1    where C1 = 1
  
   for(int i=0; i<inner.length; i++){               // T2(n) = C2 + C3*n   where C2 = 1 , C3 = 3
-    for(int j=0; j<outer.length; j++){            // T3(n) = (C4 + C5*n)*m   where C4 = 1 , C5 = 3
-      if(inner[i] == outer[j]){                  // T4(n) = C6*n*m   where C6 = 4 
-        cont++;                                 // T5(n) = C7*n*m   where C7 = 1
-        break;                                 // T6(n) = C8*n*m   where C8 = 1
+    for(int j=0; j<outer.length; j++){             // T3(n) = (C4 + C5*n)*m   where C4 = 1 , C5 = 3
+      if(inner[i] == outer[j]){                   // T4(n) = C6*n*m   where C6 = 4 
+        cont++;                                   // T5(n) = C7*n*m   where C7 = 1
+        break;                                   // T6(n) = C8*n*m   where C8 = 1
       }
   }
 }
- if(cont == inner.length){                // T7(n) = C9 where C9.0 = 3
+ if(cont == inner.length){                 // T7(n) = C9 where C9.0 = 3
    return true;                           // C9 = 4
  }
   return false;                          // T8(n) = C10 where C10 = 1

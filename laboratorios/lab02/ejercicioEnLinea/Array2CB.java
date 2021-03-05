@@ -27,11 +27,11 @@ O(n)  where n is the array`s length
 -------------- FizzArray ------------------------
 
   public int[] fizzArray(int n) {
-    int[] nuevo = new int[n];        // T1(n) = C1
-    for(int i = 0; i < n; i++){      // T2(n) = C2*n + C3
-      nuevo [i] = i;                 // T3(n) = C4*n 
+    int[] nuevo = new int[n];        // T1(n) = C1 = 1
+    for(int i = 0; i < n; i++){      // T2(n) = C2*n + C3 where C2 = 1 and C3 = 3
+      nuevo [i] = i;                 // T3(n) = C4*n where C4 = 2
     }
-    return nuevo;                   // T4(n) = C5
+    return nuevo;                   // T4(n) = C5 where C5 = 1
   }
 /*
 Complexity for the worst case
@@ -108,7 +108,7 @@ public int[] evenOdd(int[] nums){
       }
 
       /*
-      T(n) = C1 + C2 + C3 + C4+C5*(n-1) + C6 *(n-1) + C7 + C8 *(n) + C9*n 
+      T(n) = C1 + C2 + C3 + C4+C5*(n-1) + C6 *(n-1) + C7 + C8 *(n) + C9*n +C10
       T(n) = C1 + C2 + C3 + C4+ (n-1) + (n-1) + C7 + (n) + n   - - - > Product law
       T(n) = n                                                  - - - > Sum law
       O(n) where n is the array´s length 

@@ -1,35 +1,43 @@
  
 -------------- More14 ----------------------
 public boolean more14(int[] nums) {       
-    int contador1 = 0;                    //C1=2
-    int contador4 = 0;
+    int contador1 = 0;                    //T1(n) = C1 ,  where C1.0 = 1
+    int contador4 = 0;                   // C1 = 2
     
-    for(int i = 0;i<nums.length;i++){    //T(n) = C2 +  C3*n   where C2=1 and C3=3
-      if(nums[i] == 1){                  //T(n) = C4*n         where C4=4
+    for(int i = 0;i<nums.length;i++){    //T2(n) = C2 +  C3*n ,   where C2=1 and C3=3
+      if(nums[i] == 1){                  //T3(n) = C4*n ,          where C4=4
         contador1++;
-      }if(nums[i]==4){                   //T(n) = C5*n         where C5=4
+      }if(nums[i]==4){                   //T4(n) = C5*n         where C5=4
         contador4++;
       }
     }
-    if(contador1 > contador4){          //C6=4
-      return true;
+    if(contador1 > contador4){          //T5(n) =  C1,     where  C6.0 = 2
+      return true;                      //C6=3
     }
-      return false;
+      return false;                    //C7=1
   }
+"""
+Complexity for the worst case
+T(n) =  C1 + C2 + C3*n + C4*n + C5*n + C6 + C7
+T(n) = C3*n + C4*n + C5*n      ----> Sum law
+T(n) = n                       ----> Product law
+O(n)  where n is the array`s length
+"""
   
 -------------- FizzArray ------------------------
 
   public int[] fizzArray(int n) {
-    int[] nuevo = new int[n];        // T(n) = C1
-    for(int i = 0;i<n;i++){          // T(n) = C2 + n
-      nuevo [i] = i;
+    int[] nuevo = new int[n];        // T1(n) = C1
+    for(int i = 0; i < n; i++){      // T2(n) = C2*n + C3
+      nuevo [i] = i;                 // T3(n) = C4*n 
     }
-    return nuevo;                   // T(n) = C3
+    return nuevo;                   // T4(n) = C5
   }
 """
 Complexity for the worst case
-T(n) = C2 + n
-T(n) = n      ----> Sum law
+T(n) = C1 + C2*n + C3 + C4*n + C5
+T(n) = C2*n + C4*n     ----> Sum law
+T(n) = n               ----> Product law
 O(n)  where n is the array`s length
 """
  -------------- CenteredAverage ------------------------
@@ -52,16 +60,23 @@ public int centeredAverage(int[] nums) {
 }
  -------------- ZeroFront ------------------------
  public int[] zeroFront(int[] nums) {
-  int temp=0;                            //C1=1
-  for(int i=0; i<nums.length; i++){      // T(n) = C2 +  C3*n   where C2=1 and C3=3
-    if(nums[i]==0){                      // T(n) = C4*n   where C4=10
-    nums[i]= nums[temp];
+  int temp=0;                            //T1(n) = C1 ,  where  C1 = 1
+  for(int i=0; i<nums.length; i++){      //T2(n) = C2 +  C3*n ,  where C2 = 1 and C3 = 3
+    if(nums[i]==0){                      //T3(n) = C4*n   where C4 = 9
+    nums[i]= nums[temp];                 
     nums[temp]=0;
     temp++;
     }
   }
-  return nums;
+  return nums;                          // T4(n) = C5  where C5=1
 }
+"""
+Complexity for the worst case
+T(n) = C1 + C2 + C3*n + C4*n + C5
+T(n) = C2*n + C4*n     ----> Sum law
+T(n) = n               ----> Product law
+O(n)  where n is the array`s length
+"""
 
  -------------- EvenOdd ------------------------
 public int[] evenOdd(int[] nums){

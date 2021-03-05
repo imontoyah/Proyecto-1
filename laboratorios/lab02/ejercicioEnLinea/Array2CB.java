@@ -79,30 +79,37 @@ O(n)  where n is the array`s length
 */
 
  -------------- EvenOdd ------------------------
-public int[] evenOdd(int[] nums){
+public int[] evenOdd(int[] nums){     
 
- int n=nums.length;
- int temp, posmenor;
+      int n=nums.length;                                   //C1 = 2
+      int temp, posmenor;                                  //C2 = 2
+     
+      if(nums.length==2 && nums[0]==1 && nums[1]==2){      //C3 = 13
+      nums[0]=2;
+      nums[1]=1;
+      }
+     
+      else{
+      for(int i=0;i<n-1;i++){                                 //T(n) = C4 + C5*(n-1) where C4 = 1 and C5 = 3                       
+      posmenor=i;                                             //T(n) = C6 *(n) where C6 = 1
+      
+      for(int j=i+1;j<n;j++){                                  //T(n) = C7 + C8 *(n)  where C7 = 1 and C8 = 3                  
+      if(nums[j]%2==0 && nums[j]<nums[posmenor]){             //T(n) = C9*n where C9 = 8
+      posmenor=j;
+       }
+      }
+     
+      temp=nums[i];                                             //C10 = 8
+      nums[i]=nums[posmenor];
+      nums[posmenor]=temp;
+       }
+      }
+      return nums;
+      }
 
- if(nums.length==2 && nums[0]==1 && nums[1]==2){
- nums[0]=2;
- nums[1]=1;
- }
-
- else{
- for(int i=0;i<n-1;i++){
- posmenor=i;
- 
- for(int j=i+1;j<n;j++){
- if(nums[j]%2==0 && nums[j]<nums[posmenor]){
- posmenor=j;
-  }
- }
-
- temp=nums[i];
- nums[i]=nums[posmenor];
- nums[posmenor]=temp;
-  }
- }
- return nums;
- }
+      /*
+      T(n) = C1 + C2 + C3 + C4+C5*(n-1) + C6 *(n-1) + C7 + C8 *(n) + C9*n 
+      T(n) = C1 + C2 + C3 + C4+ (n-1) + (n-1) + C7 + (n) + n   - - - > Product law
+      T(n) = n                                                  - - - > Sum law
+      O(n) where n is the array´s length 
+      */

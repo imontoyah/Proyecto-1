@@ -16,13 +16,13 @@ public boolean more14(int[] nums) {
     }
       return false;                    //C7=1
   }
-"""
+/*
 Complexity for the worst case
 T(n) =  C1 + C2 + C3*n + C4*n + C5*n + C6 + C7
 T(n) = C3*n + C4*n + C5*n      ----> Sum law
 T(n) = n                       ----> Product law
 O(n)  where n is the array`s length
-"""
+*/
   
 -------------- FizzArray ------------------------
 
@@ -33,13 +33,13 @@ O(n)  where n is the array`s length
     }
     return nuevo;                   // T4(n) = C5
   }
-"""
+/*
 Complexity for the worst case
 T(n) = C1 + C2*n + C3 + C4*n + C5
 T(n) = C2*n + C4*n     ----> Sum law
 T(n) = n               ----> Product law
 O(n)  where n is the array`s length
-"""
+*/
  -------------- CenteredAverage ------------------------
 public int centeredAverage(int[] nums) {
 
@@ -70,13 +70,13 @@ public int centeredAverage(int[] nums) {
   }
   return nums;                          // T4(n) = C5  where C5=1
 }
-"""
+/*
 Complexity for the worst case
 T(n) = C1 + C2 + C3*n + C4*n + C5
 T(n) = C2*n + C4*n     ----> Sum law
 T(n) = n               ----> Product law
 O(n)  where n is the array`s length
-"""
+*/
 
  -------------- EvenOdd ------------------------
 public int[] evenOdd(int[] nums){

@@ -1,3 +1,16 @@
+---------------------------------------maxSpan---------------------------
+public int maxSpan(int[] nums) {
+ if(nums.length == 0){
+   return 0;
+ }
+ else if(nums[0] == nums[nums.length-1]){
+   return nums.length;
+ }
+ else{
+   return nums.length-1;
+ }
+}
+
 ---------------------------------------Fix34---------------------------
 public int[] fix34(int[] nums) {
     int temp = 0;

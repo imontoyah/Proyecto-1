@@ -1,17 +1,17 @@
  
 -------------- More14 ----------------------
-public boolean more14(int[] nums) {
-    int contador1 = 0;
+public boolean more14(int[] nums) {       
+    int contador1 = 0;                    //C1=2
     int contador4 = 0;
     
-    for(int i = 0;i<nums.length;i++){
-      if(nums[i] == 1){
+    for(int i = 0;i<nums.length;i++){    //T(n) = C2 +  C3*n   where C2=1 and C3=3
+      if(nums[i] == 1){                  //T(n) = C4*n         where C4=4
         contador1++;
-      }if(nums[i]==4){
+      }if(nums[i]==4){                   //T(n) = C5*n         where C5=4
         contador4++;
       }
     }
-    if(contador1 > contador4){
+    if(contador1 > contador4){          //C6=4
       return true;
     }
       return false;
@@ -46,11 +46,15 @@ public int centeredAverage(int[] nums) {
  for(int i = 0; i<nums.length;i++){
  suma = suma + nums[i];
  }
+  suma = suma - max-min;                 
+ int promedio = suma/(nums.length-2);
+ return promedio;
+}
  -------------- ZeroFront ------------------------
  public int[] zeroFront(int[] nums) {
-  int temp=0;
-  for(int i=0; i<nums.length; i++){
-    if(nums[i]==0){
+  int temp=0;                            //C1=1
+  for(int i=0; i<nums.length; i++){      // T(n) = C2 +  C3*n   where C2=1 and C3=3
+    if(nums[i]==0){                      // T(n) = C4*n   where C4=10
     nums[i]= nums[temp];
     nums[temp]=0;
     temp++;
@@ -59,10 +63,6 @@ public int centeredAverage(int[] nums) {
   return nums;
 }
 
- suma = suma - max-min;
- int promedio = suma/(nums.length-2);
- return promedio;
-}
  -------------- EvenOdd ------------------------
 public int[] evenOdd(int[] nums){
 

@@ -66,4 +66,22 @@ public boolean linearIn(int[] outer, int[] inner) {
   return false;
 }
 
-
+---------------------------------------CountClump---------------------------
+    public int countClumps(int[] nums) {
+  int count = 0;
+  boolean resultado = false;
+  
+  if(nums.length == 0){
+    return count;
+  }
+  for(int i = 0; i < nums.length-1; i++){
+    if(nums[i] == nums[i+1] && !resultado){
+      resultado = true;
+      count++;
+    }
+    else if(nums[i]!=nums[i+1]){
+      resultado = false;
+    }
+  }
+  return count;
+}

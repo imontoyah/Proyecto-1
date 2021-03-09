@@ -41,23 +41,30 @@ T(n) = n               ----> Product law
 O(n)  where n is the array`s length
 */
  -------------- CenteredAverage ------------------------
-public int centeredAverage(int[] nums) {
+ public int centeredAverage(int[] nums) {
 
- int max = nums[0];
- int min = nums[0];
- int suma = 0;
-
- for(int i = 0;i<nums.length;i++){
- max = Math.max(max, nums[i]);
- min = Math.min(min, nums[i]);
- }
- for(int i = 0; i<nums.length;i++){
- suma = suma + nums[i];
- }
-  suma = suma - max-min;                 
- int promedio = suma/(nums.length-2);
- return promedio;
+    int max = nums[0];                       //C1 = 2
+    int min = nums[0];                       //C2 = 2
+    int suma = 0;                            //C3 = 1
+   
+    for(int i = 0;i<nums.length;i++){       //T(n) = C4 + C5*n  where C4 = 1 and C5 = 3
+    max = Math.max(max, nums[i]);            // T(n) = C6*n  where C6 = 3
+    min = Math.min(min, nums[i]);             //T(n) = C7*n  where C7 = 3
+    }
+    for(int i = 0; i<nums.length;i++){       //T(n) = C8 + C9*n  where C8 = 1 and C9= 3
+    suma = suma + nums[i];                  //T(n) = C10 * n where C10 = 3     
+    }
+  suma = suma - max-min;                   //C11 = 3
+ int promedio = suma/(nums.length-2);      //C12 = 4
+ return promedio;                         //C13 = 1
 }
+/*
+Complexity for the worst case
+T(n) = C1 + C2 + C3 + C4 + C5*n + C6*n + C7*n+ C8 + C9*n + C10*n
+T(n) = C5*n + C6*n+ C7*n + C9*n + C10*n  ----> Sum law
+T(n) = n                                 ----> Product law
+O(n)  where n is the array`s length
+*/
  -------------- ZeroFront ------------------------
  public int[] zeroFront(int[] nums) {
   int temp=0;                            //T1(n) = C1 ,  where  C1 = 1

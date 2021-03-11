@@ -1,39 +1,31 @@
 class Nodo():
     def __init__(self, obj=None, nxt = None):
-        self.obj = obj
-        self.nxt = nxt
+        self.obj = obj                                      #C1 = 2                   
+        self.nxt = nxt                                      
  
     def __str__(self):
-        return "" + self.obj
+        return "" + self.obj                                #C2 = 2
  
 class Lsimple(): 
     def __init__(self):
-        self.first_Node = None
+        self.first_Node = None                              #C3 = 3
         self.last_Node = None
         self.size = 0
  
     def size(self):
-        return self.size 
+        return self.size                                     #C4 = 1
     
-    """def get(self, index):
-        if index < 0 and index>=self.size:
-            raise IndexError("La posición no existe")
-        else:
-            temp = self.first_Node
-            for i in range(index):
-                temp = temp.siguiente
-            return Nodo.temp.__str__"""
    
     def contains(self, element):
-        aux = self.first_Node
-        while aux != None:
-            if(aux.obj == element):
+        aux = self.first_Node                               #C5 = 1
+        while aux != None:                                  #C6 = 
+            if(aux.obj == element):                         #C7 = 
                 return True
             aux = aux.nxt
         return False  
  
     def insertIndex(self, element, index):
-        nuevo = Nodo(element)
+        nuevo = Nodo(element)                                #C = 
 
         if (index > self.size) or (index < 0):
             raise IndexError("Posicion invalida")

@@ -1,20 +1,25 @@
 ---------------------------------------maxSpan---------------------------
-public int maxSpan(int[] nums) {                     
- if(nums.length == 0){                           // C1.0 = 3
-   return 0;                                     // C1 = 4
- }
- else if(nums[0] == nums[nums.length-1]){       //C2.0 = 6
-   return nums.length;                          // C2 = 8
- }
- else{                                          // C3 = 3             
-   return nums.length-1;
- }
+public int maxSpan(int[] nums) {
+  int temp = 0;                               // T(n) = C1 where C1 = 1
+  int max = 0;                                // T(n) = C2 where C2 = 1
+  
+  for(int i = 0; i < nums.length; i++){          // T(n) = C4 + C3*n   where C4 = 1 , C3 = 3
+    for(int j = 0; j < nums.length; j++){        //T(n) = (C5 + C6*n)*n    where C5 = 1 , C6 = 3
+       if (nums[i]==nums[j]){                    //C7*n*n where C7 = 4
+          temp=j-i+1;                            //C8*n*n where C8 = 3
+          max = Math.max(temp,max) ;             //C9*n*n where C9 = 2
+      }
+    }
+  }
+  return max;                                   // C10 = 1      
 }
+ 
 /* Complexity worst case
-T(n) = C1 + C2 + C3
-T(n) = C
-O(1) 
-The complexity for the worst case is a constant
+T(n) = C1 + C2 + C4 + C3*n + (C5 + C6*n)*n + C7*n*n + C8*n*n + C9*n*n + C10
+T(n) = (C3 + C5)*n + (C6 + C7 + C8 + C9)*n*n                  ----> Common factor and sum law
+T(n) = n + n*n                                                ----> Product law
+T(n) = n*n                                                    ----> Sum law
+O(n^2) where n is the aray´s length 
 */
 ---------------------------------------Fix34---------------------------
 public int[] fix34(int[] nums) {

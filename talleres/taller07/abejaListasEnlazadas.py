@@ -25,54 +25,54 @@ class Lsimple():
         return False  
  
     def insertIndex(self, element, index):
-        nuevo = Nodo(element)                                #C = 
+        nuevo = Nodo(element)                                #C = 2
 
-        if (index > self.size) or (index < 0):
+        if (index > self.size) or (index < 0):              #C0 = 5 
             raise IndexError("Posicion invalida")
-        elif index == 0:
-            nuevo.nxt = self.first_Node
-            self.first_Node = nuevo
+        elif index == 0:                                    #C0 = 1
+            nuevo.nxt = self.first_Node                     #C0 = 3
+            self.first_Node = nuevo                         #C0 = 1
         else:
-            n_ant = self.first_Node
-            for i in range(1,index):
-                n_ant = n_ant.nxt
-            nuevo.nxt = n_ant.nxt
-            n_ant.nxt = nuevo
-        self.size +=1
+            n_ant = self.first_Node                         #C0 = 1
+            for i in range(1,index):                        #C0 = n
+                n_ant = n_ant.nxt                           #C0 = 1
+            nuevo.nxt = n_ant.nxt                           #C0 = 1
+            n_ant.nxt = nuevo                               #C0 = 1
+        self.size +=1                                       #C0 = 1
     
     def removeIndex(self, index): 
-        if index == None:
-            index = self.size - 1          
-            self.size -= 1
-            if index == 0:
-                self.first_Node = self.first_Node.nxt
+        if index == None:                                   #C0 = 1
+            index = self.size - 1                           #C0 = 2         
+            self.size -= 1                                  #C0 = 1
+            if index == 0:                                  #C0 = 2
+                self.first_Node = self.first_Node.nxt       
             else:
-                pre = self.first_Node
-                actual = pre.nxt
-                for i in range(1, index):
-                    pre = actual
-                    actual = pre.nxt
-                pre.nxt = actual.nxt
-        elif (index < 0) or (index >= self.size):
-            raise IndexError("Indice fuera de rango")
-        elif index == 0:
-            self.first_Node = self.first_Node.nxt
-            self.size -= 1
+                pre = self.first_Node                       #C0 = 1
+                actual = pre.nxt                            #C0 = 1
+                for i in range(1, index):                   #C0 = n
+                    pre = actual                            #C0 = 1
+                    actual = pre.nxt                        #C0 = 1
+                pre.nxt = actual.nxt                        #C0 = 1                        
+        elif (index < 0) or (index >= self.size):           #C0 = 3
+            raise IndexError("Indice fuera de rango")       #C0 
+        elif index == 0:                                    #C0 = 1
+            self.first_Node = self.first_Node.nxt           #C0 = 1
+            self.size -= 1                                  #C0 = 1
         else:
-            pre = self.first_Node
-            n_act = pre.nxt
-            for i in range(1, index):
-                pre = n_act
-                n_act = pre.nxt
-            pre.nxt = n_act.nxt         
-            self.size -= 1
+            pre = self.first_Node                           #C0 = 1
+            n_act = pre.nxt                                 #C0 = 1
+            for i in range(1, index):                       #C0 = n
+                pre = n_act                                 #C0 = 1
+                n_act = pre.nxt                             #C0 = 1
+            pre.nxt = n_act.nxt                             #C0 = 1         
+            self.size -= 1                                  #C0 = 1
      
 
 class bee():
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self, x, y, z): 
+        self.x = x                                          #C0 = 1
+        self.y = y                                          #C0 = 1
+        self.z = z                                          #C0 = 1
 
             
 class __main__():

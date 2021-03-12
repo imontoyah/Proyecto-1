@@ -33,6 +33,12 @@ class Lsimple():
                 return "La abeja esta en la posicion " + str(cont) #C8.0 = 3 
             aux = aux.nxt                                          #C9 = 2
         return "La abeja no esta en la lista"                      #C10 = 1
+    
+   def add(self, element):                      
+        nuevo = Nodo(element)                             # C0.1 = 2
+        nuevo.nxt = self.first_Node                       # C0.2 = 1
+        self.first_Node = nuevo                           # C0.3 = 1
+        self.size += 1                                    # C0.4 = 1
  
     def insertIndex(self, element, index):
         nuevo = Nodo(element)                               #C11 = 2
@@ -40,15 +46,14 @@ class Lsimple():
         if (index > self.size) or (index < 0):              #C12 = 5 
             raise IndexError("Posicion invalida")
         elif index == 0:                                    #C13 = 1
-            nuevo.nxt = self.first_Node                     #C13.0 = 3
-            self.first_Node = nuevo                         #C13.1 = 1
+            self.add(element)                              #C13.1 = 1
         else:
             n_ant = self.first_Node                         #C14 = 1
             for i in range(1,index):                        #T(n) = n*C15
                 n_ant = n_ant.nxt                           #T(n) = n*C16 
             nuevo.nxt = n_ant.nxt                           #C17 = 1
             n_ant.nxt = nuevo                               #C18 = 1
-        self.size +=1                                       #C19 = 1
+            self.size +=1                                   #C19 = 1
     
     def removeIndex(self, index): 
         if index == None:                                   #C0 = 1
@@ -99,6 +104,11 @@ class __main__():
     print(lista.get)
     
 """
+Complejidad de agregar abejas en la primera posicion para el peor de los casos
+T(n) = C1 + C2 + C3 + C4
+T(n) = 1
+O(1)
+
 Complejidad de agregar abejas en una posicion i para el peor de los casos
 T(n) = C9 + C10 + C11 + C12 + C13 + C14 + C15*n + n*C16 + C17 + C18
 T(n) = (C15 + C16)*n                                ---> Regla de la suma y factor comun

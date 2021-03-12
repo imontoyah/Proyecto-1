@@ -15,6 +15,15 @@ class Lsimple():
     def size(self):
         return self.size                                        #C4 = 1
     
+     def get(self, index):
+        if index < 0 and index>=self.size:                      #C0 = 5
+            raise IndexError("La posición no existe")           #C0.1 = 7
+        else:
+            temp = self.first_Node                              #C0.3 = 1
+            for i in range(index):                              #T(n) = n*C0.4
+                temp = temp.nxt                                 #T(n) = n*C0.5
+            return temp.obj                                     #C0.6 = 1
+    
    def contains(self, element):                                 #C5 = 2
         cont = 0
         aux = self.first_Node

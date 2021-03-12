@@ -15,30 +15,31 @@ class Lsimple():
     def size(self):
         return self.size                                     #C4 = 1
     
-   
-    def contains(self, element):
-        aux = self.first_Node                               #C5 = 1
-        while aux != None:                                  #C6 = 
-            if(aux.obj == element):                         #C7 = 
-                return True
+   def contains(self, element):                                 #C5 = 2
+        cont = 0
+        aux = self.first_Node
+        while aux != None:                                     #T(n) = C6*n
+            cont+=1                                            #C7  
+            if(aux.obj == element):                            #C8
+                return "La abeja esta en la posicion " + str(cont)  
             aux = aux.nxt
-        return False  
+        return "La abeja no esta en la lista" 
  
     def insertIndex(self, element, index):
-        nuevo = Nodo(element)                                #C = 2
+        nuevo = Nodo(element)                               #C9 = 2
 
-        if (index > self.size) or (index < 0):              #C0 = 5 
+        if (index > self.size) or (index < 0):              #C10 = 5 
             raise IndexError("Posicion invalida")
-        elif index == 0:                                    #C0 = 1
-            nuevo.nxt = self.first_Node                     #C0 = 3
-            self.first_Node = nuevo                         #C0 = 1
+        elif index == 0:                                    #C11 = 1
+            nuevo.nxt = self.first_Node                     #C12 = 3
+            self.first_Node = nuevo                         #C13 = 1
         else:
-            n_ant = self.first_Node                         #C0 = 1
-            for i in range(1,index):                        #C0 = n
-                n_ant = n_ant.nxt                           #C0 = 1
-            nuevo.nxt = n_ant.nxt                           #C0 = 1
-            n_ant.nxt = nuevo                               #C0 = 1
-        self.size +=1                                       #C0 = 1
+            n_ant = self.first_Node                         #C14 = 1
+            for i in range(1,index):                        #T(n) = n*C15
+                n_ant = n_ant.nxt                           #T(n) = n*C16 
+            nuevo.nxt = n_ant.nxt                           #C17 = 1
+            n_ant.nxt = nuevo                               #C18 = 1
+        self.size +=1                                       #C19 = 1
     
     def removeIndex(self, index): 
         if index == None:                                   #C0 = 1
@@ -87,6 +88,14 @@ class __main__():
     lista.removeIndex()
     print(lista.contains(bee3))
     print(lista.get)
+    
+"""
+Complejidad de agregar n abejas para el peor de los casos
+T(n) = C9 + C10 + C11 + C12 + C13 + C14 + C15*n + n*C16 + C17 + C18
+T(n) = (C15 + C16)*n                                ---> Regla de la suma y factor comun
+T(n) = n                                            ---> Regla del producto
+O(n)
+"""
 
 
 

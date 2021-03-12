@@ -4,7 +4,7 @@ utilizada con millones de abejas porque seria O(1) en el mejor y peor caso, es d
 sería efectivo. Y la segunda sería agergar en una posicion i la cual por su complejidad
 no seria tan bueno el aplicar la lista a millones de abejas porque seria O(n) y esto haria
 que tomara un poco más de tiempo a medida que aumentan las operaciones, pero a pesar de esto
-podría considerarse.
+podría considerarse como una buena opcion.
 
-2. La complejidad de agregar n abejas, si es al principio o al final es O(1) y en otra posicion
+2. La complejidad de agregar n abejas, si es al principio o al final es O(1) y en cualquier posicion i
 seria O(n)

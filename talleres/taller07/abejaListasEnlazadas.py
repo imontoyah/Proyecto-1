@@ -15,7 +15,7 @@ class Lsimple():
     def size(self):
         return self.size                                        #C4 = 1
     
-     def get(self, index):
+    def get(self, index):
         if index < 0 and index>=self.size:                      #C0 = 5
             raise IndexError("La posición no existe")           #C0.1 = 7
         else:

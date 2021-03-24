@@ -64,12 +64,12 @@ class TecladoRoto():
         texto = Lsimple()                                                               #C1
         acc = 0     #0 - agregar al final / 1 - agrgar al inicio                        #C2
         aux = ''                                                                        #C3
-        for i in range (len(string)):                                                   # n  - - > where n is the string´s length
+        for i in range (len(string)):                                                   #T1(n) = n  - - > where n is the string´s length
             if string[i] != '[' and string[i] != ']':                                   #C4
                aux = aux + string[i]                                                    #C5
             if string[i] == '[':                                                        #C6
                 if acc == 0:                                                            #C7
-                    texto.add_at_end(aux)                                               # m - - > where m is the List´s length
+                    texto.add_at_end(aux)                                               #T2(n) = m - - > where m is the List´s length
                     aux = ''                                                            #C8
                 else:
                     texto.push(aux)                                                     #C9
@@ -82,21 +82,20 @@ class TecladoRoto():
                 acc = 0                                                                 #c17
             if i == len(string)-1:                                                      #C18
                 if acc == 0:                                                            #C19
-                    texto.add_at_end(aux)                                               # m - - > where m is the List´s length
+                    texto.add_at_end(aux)                                               #T3(n) = m - - > where m is the List´s length
                     aux = ''                                                            #C20
                 else:
                     texto.push(aux)                                                     #C21           
                     aux = ''                                                            #C22
-        return (texto.imprimirLista(texto))                                             #m - - > where m is the List´s length
+        return (texto.imprimirLista(texto))                                             #T4(n) = m - - > where m is the List´s length
     
-"""
-->T(n) = C1 + C2 + C3 + n*(C4 + C5 + C6 + C7 + m + C8 + C9 + C10 + C11 +C12 + C13 + C14 + C15 + C16  + C18 + C19 + m + C20 + C21 + C22)+m
-->T(n) = C1 + C2 + C3 + C4*n + C5*n + C6*n + C7*n + m*n + C8*n + C9*n + C10*n + C11*n +C12*n + C13*n + C14*n + C15*n + C16*n  + C18*n +
-C19*n + m*n + C20*n + C21*n + C22*n+ m
-->T(n)= C4*n + C5*n + C6*n + C7*n + m*n + C8*n + C9*n + C10*n + C11*n +C12*n + C13*n + C14*n + C15*n + C16*n  + C18*n +
-C19*n + m*n + C20*n + C21*n + C22*n+ m
-->T(n) = n + n+ n + n + m*n + n + n + n + n +n + n + n + n+ n  + n + n + m*n + n + n+ n + m
-->T(n) = n + n*m + m
-"""
 teclado = TecladoRoto()
-print(TecladoRoto.teclado(TecladoRoto,'asd[fgh[jkl'))    
+print(TecladoRoto.teclado(TecladoRoto,'asd[fgh[jkl'))
+"""
+1.T(n) = C1 + C2 + C3 + n*(C4 + C5 + C6 + C7 + m + C8 + C9 + C10 + C11 +C12 + C13 + C14 + C15 + C16  + C18 + C19 + m + C20 + C21 + C22)+ m
+2.T(n) = C1 + C2 + C3 + C4*n + C5*n + C6*n + C7*n + m*n + C8*n + C9*n + C10*n + C11*n +C12*n + C13*n + C14*n + C15*n + C16*n  + C18*n + C19*n + m*n + C20*n + C21*n + C22*n+ m
+3.T(n)= C4*n + C5*n + C6*n + C7*n + m*n + C8*n + C9*n + C10*n + C11*n +C12*n + C13*n + C14*n + C15*n + C16*n  + C18*n + C19*n + m*n + C20*n + C21*n + C22*n+ m
+4.T(n) = n + n+ n + n + m*n + n + n + n + n +n + n + n + n+ n  + n + n + m*n + n + n+ n + m
+5.T(n) = n + n*m + m
+R/ O(p+r) where p is n+m and r is n*m
+"""

@@ -1,6 +1,6 @@
 from collections import deque
 from queue import LifoQueue
----------------------- Atencion en un bar usando colas-----------------------
+---------------------- Atencion_en_un_bar_con_colas-----------------------
 def barCola(n):
     my_queue = deque()
     
@@ -11,7 +11,7 @@ def barCola(n):
         print ("Atendiendo a: "  + my_queue.popleft())
         
 barCola(3)
-------------------- Invertir el orden de los elementos de una pila--------------
+------------------- Invertir_orden_de_una_pila--------------
 stack = LifoQueue()
 stack.put(1)
 stack.put(2)

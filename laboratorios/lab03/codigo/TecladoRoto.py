@@ -89,6 +89,8 @@ class TecladoRoto():
                     aux = ''                                                            #C22
         return (texto.imprimirLista(texto))                                             #m - - > where m is the List´s length
     
+teclado = TecladoRoto()
+print(TecladoRoto.teclado(TecladoRoto,'asd[fgh[jkl'))
 """
 ->T(n) = C1 + C2 + C3 + n*(C4 + C5 + C6 + C7 + m + C8 + C9 + C10 + C11 +C12 + C13 + C14 + C15 + C16  + C18 + C19 + m + C20 + C21 + C22)+m
 ->T(n) = C1 + C2 + C3 + C4*n + C5*n + C6*n + C7*n + m*n + C8*n + C9*n + C10*n + C11*n +C12*n + C13*n + C14*n + C15*n + C16*n  + C18*n +
@@ -97,6 +99,7 @@ C19*n + m*n + C20*n + C21*n + C22*n+ m
 C19*n + m*n + C20*n + C21*n + C22*n+ m
 ->T(n) = n + n+ n + n + m*n + n + n + n + n +n + n + n + n+ n  + n + n + m*n + n + n+ n + m
 ->T(n) = n + n*m + m
+- > p = n+m
+   O(p+ n*m)
 """
-teclado = TecladoRoto()
-print(TecladoRoto.teclado(TecladoRoto,'asd[fgh[jkl'))    
+    

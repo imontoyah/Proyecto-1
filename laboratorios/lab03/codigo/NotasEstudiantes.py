@@ -17,10 +17,10 @@ def consulta1():  #Dado un curso y un semestre mostrar todos los estudiantes y l
 def consulta2(): #Dado un estudiante y semestre mostar que los cursos que matriculo y la nota final
         print("Ingrese el nombre del estudiante y el semestre")                                                 #C5
         nombre = str(input())                                                                                   #C6
-        semestre = int(input())                                                                                 #C6
+        semestre = int(input())                                                                                 #C7
 
         filter1 = final[(final['nombre']==nombre) & (final['Semestre']==semestre)]                              #T2(n)= n where n is the number of the rows
-        print(filter1[['nombre','Nom. Materia','Nota Definitiva']])                                             #C7
+        print(filter1[['nombre','Nom. Materia','Nota Definitiva']])                                             #C8
 
 print("¿Qué tipo de colsulta quiere realizar?")                                                                 #C9
 if str(input()) == 'consulta 1':                                                                                #C10

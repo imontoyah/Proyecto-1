@@ -56,12 +56,12 @@ class main():
             lista_de_Almacenes.append(almacen)
         return lista_de_Almacenes
   
-    def __init__(self):
-        stack1 = self.inventario(2)
+    def __init__(self, num1, num2):
+        stack1 = self.inventario(num1)
         #for i in range(2):
         #    print(stack1.get().getCod())
           
-        queue1 = self.solicitudes(2)
+        queue1 = self.solicitudes(num2)
         #for i in range(2):
         #    print(queue1.get().getNom())
       
@@ -72,4 +72,4 @@ class main():
             for nevera in neveras:
                 print(nevera.getCod())
 
-main()
+main(3, 2)

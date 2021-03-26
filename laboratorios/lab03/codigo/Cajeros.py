@@ -15,22 +15,22 @@ class Cola:
         return len(self.items)
 
 class Banco:
-    def __init__(self, s1, s2, s3, s4):
+    def __init__(self, s1, s2, s3, s4):            #C0, means O(1)
         self.s1 = s1
         self.s2 = s2
         self.s3 = s3
         self.s4 = s4
     
-    def get_fila1(self):
+    def get_fila1(self):                           #C1, means O(1)
         return self.s1
     
-    def get_fila2(self):
+    def get_fila2(self):                           # C2, means O(1)
         return self.s2
     
-    def get_fila3(self):
+    def get_fila3(self):                          # C3, means O(1)
         return self.s3
-    
-    def get_fila4(self):
+     
+    def get_fila4(self):                          #C4, means O(1)
         return self.s4
 
 class main:
@@ -56,7 +56,7 @@ class main:
     def imprimirCajero(queue):                             
         cajero1 = "cajero 1 esta atendiendo a: "                                          #C10
         cajero2 = "cajero 2 esta atendiendo a: "                                          #C10.0
-        for i in range(queue.tamano()):                                                   #C11+m, means O(m) where n is the queue's length
+        for i in range(queue.tamano()):                                                   #C11+m, means O(m) where m is the queue's length
             if(i%2==0):                                                                   #C12
                 print(cajero1 + queue.avanzar())                                          #C12.0
             else:

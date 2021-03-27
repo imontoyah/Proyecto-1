@@ -24,13 +24,6 @@ class DoublyLinkedList:
             for i in range(index):                              #T(n) = n*C0.4
                 temp = temp.next                                #T(n) = n*C0.5
             return temp.data                                    #C0.6 = 1
-    """
-    Complexity of get a element:
-    T(n) = C + C0.4*n + n*C0.5 
-    T(n) = (C0.4 + C0.5)*n                            ---> Sum law and common factor 
-    T(n) = n                                          ---> Product law
-    O(n)  where n is the linked list length
-    """
 
     def append(self, data):
         new_node = Node(None, data, None)                       #C1 
@@ -67,75 +60,49 @@ class DoublyLinkedList:
             self.size+=1                                         #C2.17
         else:
             print("Index not reachable")                         #C2.18
-    
-    """
-    Complexity of add data in an index:
-    T(n) = C + C2.5*n + n*C2.12 
-    T(n) = (C2.5 + C2.12)*n                            ---> Sum law and common factor 
-    T(n) = n                                           ---> Product law
-    O(n)
-    """
-
+  
     def delete(self, index):
-        if self.head is None:
-            print("The list has no element to delete")
-            return 
-        if index == 0 and self.size == 1:
-            self.head = None
-            self.tail = None
+        if self.head is None:                                #C3
+            print("The list has no element to delete")       #C3.0
+            return                                           #C3.1
+        if index == 0 and self.size == 1:                    #C3.2
+            self.head = None                                 #C3.3
+            self.tail = None                                 #C3.4
+            self.size-=1                                     #C3.5
+        elif index == 0:                                     #C3.6
+            self.head = self.head.next                       #C3.7
+            self.size-=1                                     #C3.8
+        elif (index < 0) or (index >= self.size):            #C3.9 
+            raise IndexError("Indice fuera de rango")        #C3.10
+        elif index == self.size-1:                           #C3.11
+            pre=self.head                                    #C3.12
+            for i in range(index-1):                         #C3.13*n ,  means O(n)  where n is the
+                 pre=pre.next                                #C3.14
+            self.tail=pre                                    #C3.15
+            pre.next=None                                    
             self.size-=1
-        elif index == 0:
-            self.head = self.head.next
-            self.size-=1
-        elif (index < 0) or (index >= self.size):           #C0 = 3
-            raise IndexError("Indice fuera de rango")  
-        elif index == self.size-1:
-            pre=self.head
-            for i in range(index-1):
-                 pre=pre.next
-            self.tail=pre
-            pre.next=None
-            self.size-=1
-        elif index == self.size-2:
-            pre=self.head
-            for i in range(index-2):
-                 pre=pre.next
+        elif index == self.size-2:                           #C3.18
+            pre=self.head                                    #C3.19
+            for i in range(index-2):                         #C3.20*n , means O(n) where n is the
+                 pre=pre.next                                #C3.21
             self.tail.prev=pre
             pre.next=self.tail
             self.size-=1
         else:
-            pre=self.head
-            for i in range(index-1):
-                 pre=pre.next
+            pre=self.head                                    #C3.25
+            for i in range(index-1):                         #C3.26*n ,  means O(n)  where n is the
+                 pre=pre.next                                #C3.27
             pre.next.next.prev=pre
             pre.next=pre.next.next
             self.size-=1
-        """elif index==self.size-2:
-            pre=self.head
-            for i in range(index-1):
-                pre=pre.next
-            pre.next.next.prev=pre
-            pre.next=pre.next.next
-            pre.next.next=self.tail
-            self.size-=1"""
-
+    
     def contains(self, dato):                                 
         aux = self.head
         while aux != None:                                         #T(n) = C6*n
             if(aux.data == dato):                                  #C8 = 3
                 return True                                        #C8.0 = 3 
             aux = aux.next                                         #C9 = 2
-        return False                                               #C10 = 1
-    
-    """
-    Complexity of search a data in the linked list:
-    T(n) = C + C6*n 
-    T(n) = C6*n                                       ---> Sum law 
-    T(n) = n                                          ---> Product law
-    O(n)  where n is the linked list length
-    """
-    
-       
+        return False                                               #C10 = 1      
 
 class main:
     lista = DoublyLinkedList()

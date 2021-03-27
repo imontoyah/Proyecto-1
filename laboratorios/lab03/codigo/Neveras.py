@@ -53,9 +53,9 @@ class main():
             for j in range(almacen.getCant()):                              #C9.3*n*m , where n is the stack's length with the number of refrigerators
                 if(stack.empty()):                                          #C9.4
                     break                                                   #C9.5
-                almacen.getList().append(stack.get())                       # append en las listas en O(n) o O(1) ??
-            lista_de_Almacenes.append(almacen)
-        return lista_de_Almacenes
+                almacen.getList().append(stack.get())                       #C9.6
+            lista_de_Almacenes.append(almacen)                              #C9.7
+        return lista_de_Almacenes                                           #C9.8
   
     def __init__(self, num1, num2):
         stack1 = self.inventario(num1)                                      #C10

@@ -44,14 +44,14 @@ class DoublyLinkedList:
             self.tail = self.head                               #C2.2
             self.size+=1                                        #C2.3
         elif index == self.size:                                #C2.4
-            self.append(data)                                   #C2.5*n, means O(n) where n is the list length
+            self.append(data)                                   #C2.5*n, means O(n) where n is the Linked List's length
         elif index == 0:                                        #C2.6
             new_node.next = self.head                           #C2.7
             self.head = new_node                                #C2.8
             self.size+=1                                        #C2.9
         elif index<self.size:                                   #C2.10
             pre = self.head                                     #C2.11
-            for i in range(index-1):                            # C2.12*n,  means O(n)  where n is the index value???
+            for i in range(index-1):                            # C2.12*n,  means O(n)  where n is the Linked List's length
                 pre = pre.next                                  #C2.13
             new_node.next = pre.next
             pre.next = new_node                                  #C2.14
@@ -76,21 +76,21 @@ class DoublyLinkedList:
             raise IndexError("Indice fuera de rango")        #C3.10
         elif index == self.size-1:                           #C3.11
             pre=self.head                                    #C3.12
-            for i in range(index-1):                         #C3.13*n ,  means O(n)  where n is the
+            for i in range(index-1):                         #C3.13*n ,  means O(n)  where n is the Linked List's length
                  pre=pre.next                                #C3.14
             self.tail=pre                                    #C3.15
             pre.next=None                                    
             self.size-=1
         elif index == self.size-2:                           #C3.18
             pre=self.head                                    #C3.19
-            for i in range(index-2):                         #C3.20*n , means O(n) where n is the
+            for i in range(index-2):                         #C3.20*n , means O(n) where n is the Linked List's length
                  pre=pre.next                                #C3.21
             self.tail.prev=pre
             pre.next=self.tail
             self.size-=1
         else:
             pre=self.head                                    #C3.25
-            for i in range(index-1):                         #C3.26*n ,  means O(n)  where n is the
+            for i in range(index-1):                         #C3.26*n ,  means O(n)  where n is the Linked List's length
                  pre=pre.next                                #C3.27
             pre.next.next.prev=pre
             pre.next=pre.next.next
@@ -98,7 +98,7 @@ class DoublyLinkedList:
     
     def contains(self, dato):                                 
         aux = self.head
-        while aux != None:                                         #T(n) = C6*n
+        while aux != None:                                         #T(n) = C6*n , means O(n)  where n is the Linked List's length
             if(aux.data == dato):                                  #C8 = 3
                 return True                                        #C8.0 = 3 
             aux = aux.next                                         #C9 = 2

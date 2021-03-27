@@ -23,8 +23,8 @@ for i in range(len(df["ID"])):                                           #C8*n ,
     map_city.add_node(df['ID'].values[i])                                #C9
     
 for j in range(len(df2)):                                                #C10*m , where m is the number of arcos
-    map_city.add_edge(df2['ID_origen'].values[j], df2['ID_destino'].values[j])
-    map_city[df2['ID_origen'].values[j]][df2['ID_destino'].values[j]]["weight"] = df2['distancia'].values[j]
+    map_city.add_edge(df2['ID_origen'].values[j], df2['ID_destino'].values[j])  #C11
+    map_city[df2['ID_origen'].values[j]][df2['ID_destino'].values[j]]["weight"] = df2['distancia'].values[j]   #C12
 
 
 nx.draw_shell(map_city, node_color = "blue", edge_color = "grey", font_size = 10, width = 2, with_labels = True, node_size = 350, arrows = True, arrowsize = 20)

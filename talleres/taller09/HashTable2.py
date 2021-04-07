@@ -29,11 +29,13 @@ def get_key(val):
 def buscarPais(val):
     paises = dic.values()
     if val in paises:
-        print (get_key(val))               
+        print ("En "+ val + " se encuentra " + get_key(val))               
     else:
         print ("No hay empresas en ese pais") 
-
+        
 imprimirDic(dic)
 buscarEmpresa('Google')
+buscarEmpresa('Motorola')
+buscarPais('India')
 buscarPais('Estados Unidos')
 

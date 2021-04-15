@@ -44,7 +44,7 @@ class BinaryTree:
             return self.__buscar_aux(data,actual.left)   
         return self.__buscar_aux(data,actual.right)
 
-    def deletion(self, key):
+    def borrar(self, key):
         self.__borrar_aux(key, self.root)
     
     def __borrar_aux(self, data, actual):

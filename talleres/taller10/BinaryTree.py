@@ -21,28 +21,39 @@ class BinaryTree:
             self.__insertar_aux(data, self.root)
 
     def __insertar_aux(self, data, actual):
-        if data < actual.data:
-            if actual.left == None:
-               actual.left = Nodo(data)
+        if data < actual.data:                                           #C1
+            if actual.left == None:                                      #C2
+               actual.left = Nodo(data)                                  #C3
             else:
-                self.__insertar_aux(data,actual.left)
+                self.__insertar_aux(data,actual.left)                    #T1(n) = n
         else:
-            if actual.right == None:
-                actual.right = Nodo(data)
+            if actual.right == None:                                     #C4
+                actual.right = Nodo(data)                                #C5
             else:
-                self.__insertar_aux(data,actual.right)
+                self.__insertar_aux(data,actual.right)                   #T2(n) = n
+
+#Complexity in the worst case of insert:
+#T(n) = C1 + C2 + n
+#T(n) = n               ---> Sum law
+# O(n) where n is the size of the binary tree
    
     def buscar(self, data):
         return self.__buscar_aux(data, self.root)
 
     def __buscar_aux(self, data, actual):
-        if actual == None:
-           return False
-        if actual.data == data:
-            return True
-        if data < actual.data:
-            return self.__buscar_aux(data,actual.left)   
-        return self.__buscar_aux(data,actual.right)
+        if actual == None:                                              #C1
+           return False                                                 #C2
+        if actual.data == data:                                         #C3
+            return True                                                 #C4
+        if data < actual.data:                                          #C5
+            return self.__buscar_aux(data,actual.left)                  #T1(n)= n   
+        return self.__buscar_aux(data,actual.right)                     #T2(n)= n
+
+#Complexity in the worst case of search:
+#T(n) = C1 + C2 + C3 + C4 + C5 + n + n
+#T(n) = n + n               ---> Sum law
+#T(n) = n                   ---> Sum law
+# O(n) where n is the size of the binary tree
 
     def borrar(self, key):
         self.__borrar_aux(key, self.root)
@@ -74,14 +85,17 @@ class BinaryTree:
     
         return temp
 
-    def imprimir(self):
-        self.__imprimir_aux(self.root)
-        
     def __imprimir_aux(self, actual):
-        if actual is not None:
-            self.__imprimir_aux(actual.left)
-            print(actual.data)
-            self.__imprimir_aux(actual.right)
+        if actual is not None:                                           #C1                 
+            self.__imprimir_aux(actual.left)                             #T1(n)= n
+            print(actual.data)                                           #C2
+            self.__imprimir_aux(actual.right)                            #T2(n)= n
+
+#Complexity in the worst case of print:
+#T(n) = C1 + C2 + n + n
+#T(n) = n + n               ---> Sum law
+#T(n) = n                   ---> Sum law
+# O(n) where n is the size of the binary tree
 
     def dibujar(self):
         return  f'digraph G {"{"} \n {self.__dibujar_aux(self.root)} \n{"}"}'

@@ -1,15 +1,15 @@
 
 class Nodo:
-	def __init__(self, data):
-		self.left = None
-		self.right = None
-		self.data = data
+    def __init__(self, data):
+	self.left = None
+	self.right = None
+	self.data = data
 
-	def __repr__(self):
-		return f'{self.data}'
+    def __repr__(self):
+	return f'{self.data}'
 
 class BinaryTree:
-
+	
     def __init__(self):
         self.root = None
         self.size = 0

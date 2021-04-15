@@ -97,13 +97,3 @@ class BinaryTree:
             if actual.right is not None:
                 return f'{actual} -> {actual.right}'
 
-"""b = BinaryTree()
-b.insertar("Hola")
-b.insertar("Isa")
-b.insertar("Chais")
-b.insertar("Loca")
-b.deletion("Chais")
-#print(b.buscar(7))
-b.imprimir()
-print(b.dibujar())"""
-

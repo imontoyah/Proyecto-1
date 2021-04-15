@@ -7,7 +7,7 @@ class Persona:
         self.name = name
         self.lastName = lastName
         self.phone = phone
-        self.data = name +' '+ phone
+        self.data = name +' '+ lastName + ' ' + phone
 
     
     def toString(self):
@@ -24,11 +24,14 @@ class main:
         person = Persona(datosLimpios["FirstName"].values[i], datosLimpios["LastName"].values[i], datosLimpios["PhoneNumber"].values[i])
         arbol.insertar(person.data)
         
-    arbol.borrar("wanda 301-504-7271")    
+    arbol.borrar("wanda 301-504-7271 \n")    
     arbol.imprimir()
-    print(arbol.buscar('vivian 301-504-1758'))
-    arbol.dibujar()
+    print(arbol.buscar('vivian brooks 301-504-1758'))
+    print(arbol.buscar('Isabella Montoya 314-816-6711'))
+    print(arbol.dibujar())
 
+
+        
 
 
         

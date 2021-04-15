@@ -25,17 +25,12 @@ class BinaryTree:
             if actual.left == None:                                      #C2
                actual.left = Nodo(data)                                  #C3
             else:
-                self.__insertar_aux(data,actual.left)                    #T1(n) = n
+                self.__insertar_aux(data,actual.left)                    #T(n) = T(n)*C3.0
         else:
             if actual.right == None:                                     #C4
                 actual.right = Nodo(data)                                #C5
             else:
-                self.__insertar_aux(data,actual.right)                   #T2(n) = n
-
-#Complexity in the worst case of insert:
-#T(n) = C1 + C2 + n
-#T(n) = n               ---> Sum law
-# O(n) where n is the size of the binary tree
+                self.__insertar_aux(data,actual.right)                   #T(n) = T(n)*C6
    
     def buscar(self, data):
         return self.__buscar_aux(data, self.root)
@@ -46,38 +41,32 @@ class BinaryTree:
         if actual.data == data:                                         #C3
             return True                                                 #C4
         if data < actual.data:                                          #C5
-            return self.__buscar_aux(data,actual.left)                  #T1(n)= n   
-        return self.__buscar_aux(data,actual.right)                     #T2(n)= n
-
-#Complexity in the worst case of search:
-#T(n) = C1 + C2 + C3 + C4 + C5 + n + n
-#T(n) = n + n               ---> Sum law
-#T(n) = n                   ---> Sum law
-# O(n) where n is the size of the binary tree
+            return self.__buscar_aux(data,actual.left)                  #T(n)= T(n)*C6 
+        return self.__buscar_aux(data,actual.right)                     #T(n)= T(n)*C7
 
     def borrar(self, key):
         self.__borrar_aux(key, self.root)
     
     def __borrar_aux(self, data, actual):
-        if actual is None:
-            return  
-        if data > actual.data:
-            actual.right = self.__borrar_aux(data, actual.right)
-        elif data < actual.data:
-            actual.left = self.__borrar_aux(data, actual.left)
+        if actual is None:                                                #C1
+            return        
+        if data > actual.data:                                            #C2
+            actual.right = self.__borrar_aux(data, actual.right)          #T(n) = T(n)*C3
+        elif data < actual.data:                                          #C4
+            actual.left = self.__borrar_aux(data, actual.left)            #T(n) = T(n)*C5
         else:
-            if actual.left is None:
-                temp = actual.right
-                return temp
-            elif actual.right is None:
-                temp = actual.left
-                return temp
+            if actual.left is None:                                       #C5
+                temp = actual.right                                       #C6
+                return temp                                               #C7
+            elif actual.right is None:                                    #C8
+                temp = actual.left                                        #C9
+                return temp                                               #C10
             else:
-                temp = self.__minValueNode(actual)
-                actual.data = temp.data
-                actual.right = self.__borrar_aux(temp.data, data)
-        return actual
-    
+                temp = self.__minValueNode(actual)                       
+                actual.data = temp.data                                  #C12
+                actual.right = self.__borrar_aux(temp.data, data)        #T(n) = T(n)*C13
+        return actual                                                    #C14
+
     def __minValueNode(self, actual):
         temp = actual
         while(temp.left is not None):
@@ -87,15 +76,10 @@ class BinaryTree:
 
     def __imprimir_aux(self, actual):
         if actual is not None:                                           #C1                 
-            self.__imprimir_aux(actual.left)                             #T1(n)= n
-            print(actual.data)                                           #C2
-            self.__imprimir_aux(actual.right)                            #T2(n)= n
+            self.__imprimir_aux(actual.left)                             #T(n)= T(n)*C2
+            print(actual.data)                                           #C3
+            self.__imprimir_aux(actual.right)                            #T(n)= T(n)*C4
 
-#Complexity in the worst case of print:
-#T(n) = C1 + C2 + n + n
-#T(n) = n + n               ---> Sum law
-#T(n) = n                   ---> Sum law
-# O(n) where n is the size of the binary tree
 
     def dibujar(self):
         return  f'digraph G {"{"} \n {self.__dibujar_aux(self.root)} \n{"}"}'
@@ -110,4 +94,3 @@ class BinaryTree:
                 return f'{actual} -> {actual.left}'
             if actual.right is not None:
                 return f'{actual} -> {actual.right}'
-

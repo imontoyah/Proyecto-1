@@ -1,6 +1,6 @@
 import math
+
 class Grafo:
-    
     def __init__(self):
         self.vertices = []
         self.matriz = [[None]*0 for i in range(0)]
@@ -62,10 +62,10 @@ class Grafo:
                     elif math.isinf(matriz[i][j]):
                         cadena += '\t' + 'm'
                     else:
-                        cadena += '\t' + str(matriz[i][j])
-                        
+                        cadena += '\t' + str(matriz[i][j])                        
         cadena += '\n' 
         print(cadena)
+        
 class main:
     g = Grafo()
     g.agregar_vertice(0)

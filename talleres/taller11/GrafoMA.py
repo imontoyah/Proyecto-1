@@ -65,20 +65,22 @@ class Grafo:
                         cadena += '\t' + str(matriz[i][j])                        
         cadena += '\n' 
         print(cadena)
-        
+
 class main:
     g = Grafo()
-    g.agregar_vertice(0)
-    g.agregar_vertice(1)
-    g.agregar_vertice(2)
-    g.agregar_vertice(3)
-    g.agregar_vertice(4)
+    for i in range(6):
+       g.agregar_vertice(i)
+ 
     g.agregar_arista(0, 1, 5, True)
     g.agregar_arista(0, 3, 7, True)
     g.agregar_arista(0, 4, 2, True)
     g.agregar_arista(1, 2, 3, False)
     g.agregar_arista(2, 3, 8, False)
     g.agregar_arista(3, 4, 1, True)
-    
+   
     g.imprimir(g.matriz)
     print(g.getSuccessors(0))
+        
+                        
+                    
+        

@@ -1,5 +1,5 @@
 from collections import defaultdict
- 
+
 class Graph:
  
     def __init__(self):
@@ -9,17 +9,17 @@ class Graph:
         self.graph[u].append(v)
  
     # Esta funcion es para imprimir el recorrido en profundidad
-    def DFS_aux(self, v, visited):
-        visited.add(v)
-        print(v, end=' ')
+    def DFS_aux(self, origen, visitado):
+        visitado.add(origen)
+        print(origen, end=' ')
  
-        for neighbour in self.graph[v]:
-            if neighbour not in visited:
-                self.DFS_aux(neighbour, visited)
+        for vecino in self.graph[origen]:
+            if vecino not in visitado:
+                self.DFS_aux(vecino, visitado)
 
-    def DFS(self, v):
-        visited = set()
-        self.DFS_aux(v, visited)
+    def DFS(self, origen):
+        visitado = set()
+        self.DFS_aux(origen, visitado)
 
 g = Graph()
 g.addEdge(0, 1)
@@ -36,6 +36,11 @@ for i in range(5):
                   " (empezando desde el vertice " + str(i) + ")")
     g.DFS(i)
     print()
+
+
+
+
+ 
 
 
 

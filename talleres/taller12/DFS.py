@@ -8,7 +8,7 @@ class Graph:
     def addEdge(self, u, v):
         self.graph[u].append(v)
  
-    # A function used by DFS
+    # Esta funcion es para imprimir el recorrido en profundidad
     def DFS_aux(self, v, visited):
         visited.add(v)
         print(v, end=' ')

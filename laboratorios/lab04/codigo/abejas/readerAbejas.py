@@ -68,5 +68,5 @@ r = Read()
 r.reader("Prueba.txt")
 j = Octree()
 
-#str(bee.latitude) +", "+ str(bee.longitude) + ", " + str(bee.altitude)
+
 

@@ -36,8 +36,8 @@ class BinaryTree:
             else:
                 self.__insert_aux(data,actual.right)                        #O(m)  , where m is the number of nodes of the BinaryTree
     
-    #The tiem complexity for the worst case of insert an element is O(m)
-    #The fuction insert were taken from: https://github.com/imontoyah/ST0245-002/blob/master/talleres/taller10/BinaryTree.py
+    #The time complexity for the worst case of insert an element is O(m)
+    #The function insert were taken from: https://github.com/imontoyah/ST0245-002/blob/master/talleres/taller10/BinaryTree.py
     
     def posOrden(self, root):                   
         if root is not None:                                                #O(1)
